@@ -29,28 +29,6 @@ impl<T: Render> Render for Option<T> {
     }
 }
 
-impl Render for str {
-    fn render(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        let mut last = 0;
-        for (index, byte) in self.bytes().enumerate() {
-            match byte {
-                b'&' | b'<' | b'>' | b'"' => {
-                    f.write_str(&self[last..index])?;
-                    f.write_str(match byte {
-                        b'&' => "&amp;",
-                        b'<' => "&lt;",
-                        b'>' => "&gt;",
-                        _ => "&quot;",
-                    })?;
-                    last = index + 1;
-                }
-                _ => {}
-            }
-        }
-        f.write_str(&self[last..])
-    }
-}
-
 impl Render for String {
     fn render(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         self.as_str().render(f)
@@ -82,6 +60,7 @@ macro_rules! raw_display {
 }
 
 raw_display! {
+    str
     bool
     char
     u8 u16 u32 u64 u128 usize

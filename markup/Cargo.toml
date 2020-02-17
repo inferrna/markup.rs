@@ -1,13 +1,13 @@
 [package]
 name = "markup"
 version = "0.4.1"
-authors = ["Utkarsh Kukreti <utkarshkukreti@gmail.com>"]
+authors = ["Utkarsh Kukreti <inferrna@gmail.com>"]
 edition = "2018"
 description = "A blazing fast, type-safe template engine for Rust."
 license = "MIT/Apache-2.0"
 documentation = "https://docs.rs/markup"
-homepage = "https://github.com/utkarshkukreti/markup.rs"
-repository = "https://github.com/utkarshkukreti/markup.rs"
+homepage = "https://github.com/inferrna/markup.rs"
+repository = "https://github.com/inferrna/markup.rs"
 readme = "README.md"
 keywords = ["template", "html", "pug", "jade", "haml"]
 categories = ["template-engine"]

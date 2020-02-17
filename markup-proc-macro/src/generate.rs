@@ -214,15 +214,7 @@ impl Builder {
     }
 
     fn str(&mut self, str: &str) {
-        for ch in str.chars() {
-            match ch {
-                '&' => self.buffer.push_str("&amp;"),
-                '<' => self.buffer.push_str("&lt;"),
-                '>' => self.buffer.push_str("&gt;"),
-                '"' => self.buffer.push_str("&quot;"),
-                _ => self.buffer.push(ch),
-            }
-        }
+        self.buffer.push_str(str);
     }
 
     fn expr(&mut self, expr: &syn::Expr) {
